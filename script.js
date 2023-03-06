@@ -165,10 +165,9 @@
     topScores = document.querySelectorAll(".top-score");
     message = document.querySelector(".endgame-modal-area p");
     madeTop = document.querySelector(".endgame-modal-area h2");
+    startEndBtn = document.querySelector(".startEndBtn");
 
-    document
-      .querySelector(".startEndBtn")
-      .addEventListener("click", startGame);
+    startEndBtn.addEventListener("click", handleStartButton);
     document
       .querySelector(".submit-btn")
       .addEventListener("click", submitScore);

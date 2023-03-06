@@ -13,7 +13,7 @@ Built with:
 - JS
 - CSS
 
-## **handleStartButton**
+## **handleStartButton()**
 
 - Checks if start buttons text is "start" if it is then calls startGame() else calls endGame()
 

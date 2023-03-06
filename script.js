@@ -26,11 +26,11 @@ const startGame = () => {
     button.addEventListener("click", handleClick);
   });
   activateButton();
-}
+};
 
 const activateButton = () => {
-  const buttonIdx = randomIdx();
   if (startEndBtn.textContent === "start") return;
+  const buttonIdx = randomIdx();
   if (buttonOrderArray[buttonOrderArray.length - 1] !== buttonIdx) {
     buttons[buttonIdx].classList.add("active");
     buttonOrderArray.push(buttonIdx);
@@ -42,7 +42,7 @@ const activateButton = () => {
   } else {
     activateButton();
   }
-}
+};
 
 const handleClick = (e) => {
   if (buttonOrderArray[score] !== +e.target.id) return endGame();
@@ -51,25 +51,27 @@ const handleClick = (e) => {
   buttons[+e.target.id].classList.remove("active");
   score++;
   scoreField.textContent = score;
-}
+};
 
 const getJudgement = () => {
   if (score < 6) return "That was not so good! tbh that was HORRIBLE!";
   else if (score < 10) return "Can you get 10? Can you?";
   else if (score === 10) return "That's a 10!";
-  else if (score < 16) return "Well atleast you got over 10.. Great! Could you get 20+ too? Like my cat did?";
+  else if (score < 16)
+    return "Well atleast you got over 10.. Great! Could you get 20+ too? Like my cat did?";
   else if (score < 21) return "Nice! U almost beat my cat in this game!";
   else if (score < 31) return "Good job! U beat my cat in this game.";
-  else if (score < 51) return "Very good job! Your prize is free lunch at the Business College restaurant";
+  else if (score < 51)
+    return "Very good job! Your prize is free lunch at the Business College restaurant";
   else if (score < 61) return "Nice!";
   else return "Awesome!!";
-}
+};
 
 const checkIfTopFive = () => {
   if (score > scoresArray[0]?.score || !scoresArray.length) return "Rank 1 score!!";
   else if (scoresArray.length < 5 || score > scoresArray[4].score) return "You made TOP 5! :)";
   else return "Not a top 5 score :(";
-}
+};
 
 const endGame = () => {
   const endSound = new Audio("mixkit-slot-machine-win-alarm-1995.wav");
@@ -89,7 +91,7 @@ const endGame = () => {
     endGameModal.classList.add("active");
     startEndBtn.addEventListener("click", handleStartButton);
   }, 2500);
-}
+};
 
 const submitScore = () => {
   if (!inputField.value) return;
@@ -102,7 +104,7 @@ const submitScore = () => {
   endGameModal.classList.remove("active");
   highScoresModal.classList.add("active");
   resetValues();
-}
+};
 
 const resetValues = () => {
   buttons.forEach((button) => {
@@ -113,16 +115,16 @@ const resetValues = () => {
   scoreField.textContent = score;
   inputField.value = "";
   buttonOrderArray.length = 0;
-}
+};
 
 const handleStartButton = () => {
   startEndBtn.textContent === "start" ? startGame() : endGame();
-}
+};
 
 const closeModal = () => {
   modalOverlay.classList.remove("active");
   highScoresModal.classList.remove("active");
-}
+};
 
 const startEndBtn = document.querySelector(".startEndBtn");
 const submitBtn = document.querySelector(".submit-btn");

@@ -19,12 +19,6 @@
   const buttonOrderArray = [];
   const scoresArray = [];
 
-  // Checks if start buttons text is "start" if it is then startGame() else endGame()
-  const handleStartButton = () => {
-    startEndBtn.textContent === "start" ? startGame() : endGame();
-  };
-
-  // Sets start buttons text to "end", add's click eventlisteners to game buttons and calls the activateButton() function
   const startGame = () => {
     startEndBtn.textContent = "end";
 
@@ -41,17 +35,17 @@
     );
     endSound.play();
 
-    madeTop.textContent = checkIfTopFive();
     message.textContent = getJudgement();
+    madeTop.textContent = checkIfTopFive();
     finalScore.textContent = score;
-    startEndBtn.textContent = "start";
-
-    startEndBtn.removeEventListener("click", handleStartButton);
 
     buttons.forEach((button) => {
       button.classList.add("active");
       button.removeEventListener("click", handleClick);
     });
+
+    startEndBtn.removeEventListener("click", handleStartButton);
+    startEndBtn.textContent = "start";
 
     clearTimeout(intervalId);
 
@@ -151,6 +145,10 @@
   const closeModal = () => {
     modalOverlay.classList.remove("active");
     highScoresModal.classList.remove("active");
+  };
+
+  const handleStartButton = () => {
+    startEndBtn.textContent === "start" ? startGame() : endGame();
   };
 
   document.addEventListener("DOMContentLoaded", init);

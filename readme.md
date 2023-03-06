@@ -16,7 +16,7 @@
 
 ## **randomIdx()**
 
-- Returns a random number (1,2,3 or 4)
+- Returns a random number (0,1,2 or 3)
 
 ## **activateButton()**
 

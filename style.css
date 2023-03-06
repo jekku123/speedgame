@@ -100,9 +100,6 @@ main {
   transition: 0.1s linear;
 }
 
-.btn:hover {
-}
-
 .red {
   background-color: rgb(180, 0, 0);
 }
@@ -228,15 +225,4 @@ input {
 input:focus {
   box-shadow: 0 0 10px black;
   outline: black;
-}
-
-@media only screen and (max-width: 920px) {
-  .panel {
-    flex-direction: row;
-    height: 100%;
-  }
-
-  .title {
-    padding: 1rem 4rem;
-  }
 }

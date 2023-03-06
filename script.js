@@ -53,6 +53,7 @@ const handleClick = (e) => {
   scoreField.textContent = score;
 };
 
+// sets the judgement message
 const getJudgement = () => {
   if (score < 6) return "That was not so good! tbh that was HORRIBLE!";
   else if (score < 10) return "Can you get 10? Can you?";
@@ -67,12 +68,15 @@ const getJudgement = () => {
   else return "Awesome!!";
 };
 
+// checks if the score is top5 score and prints a message telling that was it or was it not
 const checkIfTopFive = () => {
   if (score > scoresArray[0]?.score || !scoresArray.length) return "Rank 1 score!!";
   else if (scoresArray.length < 5 || score > scoresArray[4].score) return "You made TOP 5! :)";
   else return "Not a top 5 score :(";
 };
 
+// reset stuff etc listeners, checks if score is top 5 and gets the judgements for the score
+// and opens the modal
 const endGame = () => {
   const endSound = new Audio("mixkit-slot-machine-win-alarm-1995.wav");
   endSound.play();
@@ -93,6 +97,7 @@ const endGame = () => {
   }, 2500);
 };
 
+// pushses the score to an array of objs with {name, score} then sorts the array by scores and loops the values into hs board
 const submitScore = () => {
   if (!inputField.value) return;
   scoresArray.push({ name: inputField.value, score });
@@ -104,8 +109,7 @@ const submitScore = () => {
   endGameModal.classList.remove("active");
   highScoresModal.classList.add("active");
   resetValues();
-};
-
+}; // resets values
 const resetValues = () => {
   buttons.forEach((button) => {
     button.classList.remove("active");

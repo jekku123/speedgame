@@ -19,10 +19,12 @@
   const buttonOrderArray = [];
   const scoresArray = [];
 
-  const randomIdx = () => {
-    return Math.floor(Math.random() * 4);
+  // Checks if start buttons text is "start" if it is then startGame() else endGame()
+  const handleStartButton = () => {
+    startEndBtn.textContent === "start" ? startGame() : endGame();
   };
 
+  // Sets start buttons text to "end", add's click eventlisteners to game buttons and calls the activateButton() function
   const startGame = () => {
     startEndBtn.textContent = "end";
 
@@ -33,10 +35,37 @@
     activateButton();
   };
 
+  const endGame = () => {
+    const endSound = new Audio(
+      "mixkit-slot-machine-win-alarm-1995.wav"
+    );
+    endSound.play();
+
+    madeTop.textContent = checkIfTopFive();
+    message.textContent = getJudgement();
+    finalScore.textContent = score;
+    startEndBtn.textContent = "start";
+
+    startEndBtn.removeEventListener("click", handleStartButton);
+
+    buttons.forEach((button) => {
+      button.classList.add("active");
+      button.removeEventListener("click", handleClick);
+    });
+
+    clearTimeout(intervalId);
+
+    setTimeout(() => {
+      modalOverlay.classList.add("active");
+      endGameModal.classList.add("active");
+      startEndBtn.addEventListener("click", handleStartButton);
+    }, 2500);
+  };
+
   const activateButton = () => {
     if (startEndBtn.textContent === "start") return;
 
-    const buttonIdx = randomIdx();
+    const buttonIdx = Math.floor(Math.random() * 4);
 
     if (buttonOrderArray[buttonOrderArray.length - 1] !== buttonIdx) {
       buttonOrderArray.push(buttonIdx);
@@ -66,13 +95,16 @@
   };
 
   const getJudgement = () => {
-    if (score < 6) return "That was not so good! tbh that was HORRIBLE!";
+    if (score < 6)
+      return "That was not so good! tbh that was HORRIBLE!";
     else if (score < 10) return "Can you get 10? Can you?";
     else if (score === 10) return "That's a 10!";
     else if (score < 16)
       return "Well atleast you got over 10.. Great! Could you get 20+ too? Like my cat did?";
-    else if (score < 21) return "Nice! U almost beat my cat in this game!";
-    else if (score < 31) return "Good job! U beat my cat in this game.";
+    else if (score < 21)
+      return "Nice! U almost beat my cat in this game!";
+    else if (score < 31)
+      return "Good job! U beat my cat in this game.";
     else if (score < 51)
       return "Very good job! Your prize is free lunch at the Business College restaurant";
     else if (score < 61) return "Nice!";
@@ -80,34 +112,11 @@
   };
 
   const checkIfTopFive = () => {
-    if (score > scoresArray[0]?.score || !scoresArray.length) return "Rank 1 score!!";
-    else if (scoresArray.length < 5 || score > scoresArray[4].score) return "You made TOP 5! :)";
+    if (score > scoresArray[0]?.score || !scoresArray.length)
+      return "Rank 1 score!!";
+    else if (scoresArray.length < 5 || score > scoresArray[4].score)
+      return "You made TOP 5! :)";
     else return "Not a top 5 score :(";
-  };
-
-  const endGame = () => {
-    const endSound = new Audio("mixkit-slot-machine-win-alarm-1995.wav");
-    endSound.play();
-
-    madeTop.textContent = checkIfTopFive();
-    message.textContent = getJudgement();
-    finalScore.textContent = score;
-    startEndBtn.textContent = "start";
-
-    startEndBtn.removeEventListener("click", handleStartButton);
-
-    buttons.forEach((button) => {
-      button.classList.add("active");
-      button.removeEventListener("click", handleClick);
-    });
-
-    clearTimeout(intervalId);
-
-    setTimeout(() => {
-      modalOverlay.classList.add("active");
-      endGameModal.classList.add("active");
-      startEndBtn.addEventListener("click", handleStartButton);
-    }, 2500);
   };
 
   const submitScore = () => {
@@ -139,10 +148,6 @@
     buttonOrderArray.length = 0;
   };
 
-  const handleStartButton = () => {
-    startEndBtn.textContent === "start" ? startGame() : endGame();
-  };
-
   const closeModal = () => {
     modalOverlay.classList.remove("active");
     highScoresModal.classList.remove("active");
@@ -163,8 +168,14 @@
     message = document.querySelector(".endgame-modal-area p");
     madeTop = document.querySelector(".endgame-modal-area h2");
 
-    document.querySelector(".startEndBtn").addEventListener("click", handleStartButton);
-    document.querySelector(".submit-btn").addEventListener("click", submitScore);
-    document.querySelector(".close-btn").addEventListener("click", closeModal);
+    document
+      .querySelector(".startEndBtn")
+      .addEventListener("click", startGame);
+    document
+      .querySelector(".submit-btn")
+      .addEventListener("click", submitScore);
+    document
+      .querySelector(".close-btn")
+      .addEventListener("click", closeModal);
   }
 })();

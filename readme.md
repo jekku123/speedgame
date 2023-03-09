@@ -18,7 +18,7 @@ Built with:
 
 - Press "START" button to start the game.
 
-### The game
+### How to play
 
 - Click the buttons in the order that they light up.
 
@@ -26,7 +26,7 @@ Built with:
 
 - Game ends when you click the wrong button in the sequence that they lighted up, or by pressing the "END" key.
 
-Play game [here](https://public.bc.fi/s2300208/speedgame/)
+Try it -[here](https://public.bc.fi/s2300208/speedgame/)-
 
 ## Screenshot
 

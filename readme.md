@@ -1,17 +1,16 @@
 # Speedgame
 
 Game where buttons light up and turn off in random order, your task is to press them in the order they light up.
-If if you press the buttons in wrong order or press end button, the game will end and modal will
-show score, message and tell if you made top 5. You get to insert your name and it will show up at the scoreboard if
-you made top 5.
+If you press the buttons in wrong order or press end button, the game will end and a modal will
+show your score, judgement message and inform you if you made top 5. You get to insert your name and it will show up in the scoreboard if you made top 5.
 
 ## Technologies used
 
 Built with:
 
 - HTML
-- JS
 - CSS
+- JavaScript
 
 ## **handleStartButton()**
 

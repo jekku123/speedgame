@@ -26,7 +26,7 @@ Built with:
 
 - Game ends when you click the wrong button in the sequence that they lighted up, or by pressing the "END" key.
 
-Try it >>[HERE](https://public.bc.fi/s2300208/speedgame/)<<
+Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 
 ## Screenshot
 

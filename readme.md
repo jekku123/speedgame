@@ -24,7 +24,7 @@ Built with:
 
 ### End game
 
-- Game ends when you click the wrong button in the sequence that they lighted up, or by pressing the "END" key.
+- Game ends when you click the wrong button in the sequence that they lighted up, or by pressing the "END" button.
 
 Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 
@@ -35,5 +35,3 @@ Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 ## Authors and acknowledgment
 
 Jesse Manninen
-
-- GitHub @jekku123

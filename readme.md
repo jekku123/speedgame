@@ -30,7 +30,7 @@ Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 
 ## Screenshot
 
-![screenshot](screenshot.png)
+![screenshot](/screenshot/screenshot.png)
 
 ## Authors and acknowledgment
 

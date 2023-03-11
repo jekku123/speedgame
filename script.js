@@ -53,28 +53,32 @@ const endGame = () => {
 };
 
 const activateButton = () => {
-  if (startEndBtn.textContent === "start") return;
-  const buttonIdx = Math.floor(Math.random() * 4);
-  if (buttonOrderArray[buttonOrderArray.length - 1] !== buttonIdx) {
-    buttonOrderArray.push(buttonIdx);
-    buttons[buttonIdx].classList.add("active");
-    intervalId = setTimeout(() => {
-      buttons[buttonIdx].classList.remove("active");
+  if (startEndBtn.textContent === "end") {
+    const buttonIdx = Math.floor(Math.random() * 4);
+    if (buttonOrderArray[buttonOrderArray.length - 1] !== buttonIdx) {
+      buttonOrderArray.push(buttonIdx);
+      buttons[buttonIdx].classList.add("active");
+      intervalId = setTimeout(() => {
+        buttons[buttonIdx].classList.remove("active");
+        activateButton();
+      }, delay);
+      delay > 400 && (delay -= 10);
+    } else {
       activateButton();
-    }, delay);
-    delay > 400 && (delay -= 10);
-  } else {
-    activateButton();
+    }
   }
 };
 
 const handleClick = (e) => {
-  if (buttonOrderArray[score] !== +e.target.id) return endGame();
-  const popSound = new Audio("/assets/mixkit-long-pop-2358.wav");
-  popSound.play();
-  buttons[+e.target.id].classList.remove("active");
-  score++;
-  scoreField.textContent = score;
+  if (buttonOrderArray[score] === +e.target.id) {
+    const popSound = new Audio("/assets/mixkit-long-pop-2358.wav");
+    popSound.play();
+    buttons[+e.target.id].classList.remove("active");
+    score++;
+    scoreField.textContent = score;
+  } else {
+    endGame();
+  }
 };
 
 const getJudgement = () => {

@@ -18,9 +18,9 @@ Built with:
 
 - Press "START" button to start the game.
 
-### How to play
+### The game
 
-- Click the buttons in the order that they light up.
+- Click the buttons in the order that they light up. Delay of the buttons decreases by 10ms by every point awarded until 60 points are reached.
 
 ### End game
 

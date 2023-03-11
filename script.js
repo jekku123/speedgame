@@ -62,7 +62,7 @@ const activateButton = () => {
       buttons[buttonIdx].classList.remove("active");
       activateButton();
     }, delay);
-    delay -= 10;
+    delay > 400 && (delay -= 10);
   } else {
     activateButton();
   }

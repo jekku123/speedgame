@@ -32,7 +32,7 @@ const startGame = () => {
 
 const endGame = () => {
   const endSound = new Audio(
-    "/assets/mixkit-slot-machine-win-alarm-1995.wav"
+    "assets/mixkit-slot-machine-win-alarm-1995.wav"
   );
   endSound.play();
   message.textContent = getJudgement();
@@ -71,7 +71,7 @@ const activateButton = () => {
 
 const handleClick = (e) => {
   if (buttonOrderArray[score] === +e.target.id) {
-    const popSound = new Audio("/assets/mixkit-long-pop-2358.wav");
+    const popSound = new Audio("assets/mixkit-long-pop-2358.wav");
     popSound.play();
     buttons[+e.target.id].classList.remove("active");
     score++;

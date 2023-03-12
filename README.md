@@ -21,11 +21,11 @@ Built with:
 ### The game
 
 - Click the buttons in the order that they light up.
-- Delay of the buttons decreases by 10ms by every point awarded until 60 points are reached.
+- Delay of the buttons lightning up decreases by 10ms for every 1 point awarded, until 60 points are reached. Then it stays the same.
 
 ### End game
 
-- Game ends when you click the wrong button in the sequence that they lighted up, or by pressing the "END" button.
+- Game ends when you click the wrong button in the sequence that they lighted up or by clicking the "END" button.
 
 Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 

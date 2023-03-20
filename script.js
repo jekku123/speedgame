@@ -16,7 +16,6 @@ let delay = 1000;
 let intervalId;
 
 const buttonOrderArray = [];
-// const scoresArray = [];
 
 const handleStartButton = () => {
   startEndBtn.textContent === "start" ? startGame() : endGame();
@@ -121,23 +120,10 @@ const submitScore = () => {
   }
   endGameModal.classList.remove("active");
   highScoresModal.classList.add("active");
-  resetValues();
-};
-
-const resetValues = () => {
-  buttons.forEach((button) => {
-    button.classList.remove("active");
-  });
-  delay = 1000;
-  score = 0;
-  scoreField.textContent = score;
-  inputField.value = "";
-  buttonOrderArray.length = 0;
 };
 
 const closeModal = () => {
-  modalOverlay.classList.remove("active");
-  highScoresModal.classList.remove("active");
+  window.location.reload();
 };
 
 startEndBtn.addEventListener("click", handleStartButton);

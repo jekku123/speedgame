@@ -2,6 +2,8 @@
 
 Game where your task is to click the buttons in the order that they light up.
 
+Extra features: Top 5 Scoreboard.
+
 Made as a schoolproject for Business College Full-Stack Program.
 
 ## Technologies used

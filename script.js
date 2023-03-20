@@ -97,7 +97,7 @@ const getJudgement = () => {
 };
 
 const checkIfTopFive = () => {
-  const data = JSON.parse(localStorage.getItem("scores"));
+  const data = JSON.parse(localStorage.getItem("scores")) || [];
 
   if (score > data[0]?.score || !data.length) return "Rank 1 score!!";
   else if (data.length < 5 || score > data[4].score)
@@ -107,7 +107,7 @@ const checkIfTopFive = () => {
 
 const submitScore = () => {
   if (!inputField.value) return;
-  const data = JSON.parse(localStorage.getItem("scores"));
+  const data = JSON.parse(localStorage.getItem("scores")) || [];
 
   data.push({ name: inputField.value, score });
   data.sort((a, b) => b.score - a.score);

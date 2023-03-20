@@ -12,6 +12,8 @@ Built with:
 - CSS
 - JavaScript
 
+Saves scores into localstorage
+
 ## Setup and usage
 
 ### Start game

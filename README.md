@@ -2,8 +2,6 @@
 
 Game where your task is to click the buttons in the order that they light up.
 
-Extra features: Top 5 Scoreboard.
-
 Made as a schoolproject for Business College Full-Stack Program.
 
 ## Technologies used
@@ -14,7 +12,11 @@ Built with:
 - CSS
 - JavaScript
 
-Saves scores into localstorage
+### Features
+
+- Button order tracker
+- Top 5 Scoreboard
+- Uses localstorage to save the scores
 
 ## Setup and usage
 
@@ -24,12 +26,11 @@ Saves scores into localstorage
 
 ### The game
 
-- Click the buttons in the order that they light up.
-- Delay of the buttons lightning up decreases by 10ms for every 1 point awarded, until 60 points are reached. Then it stays the same.
+- Click the buttons in the order that they light up
 
 ### End game
 
-- Game ends when you click the wrong button in the sequence that they lighted up or by clicking the "END" button.
+- Game ends when you click the wrong button in the order that they lighted up or by clicking the "END" button. Then a modal opens that rates your performance and lets you enter your name if your score made top
 
 Play the game [here](https://public.bc.fi/s2300208/speedgame/)
 

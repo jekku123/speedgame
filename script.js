@@ -10,6 +10,7 @@ const topScores = document.querySelectorAll(".top-score");
 const message = document.querySelector(".endgame-modal-area p");
 const madeTop = document.querySelector(".endgame-modal-area h2");
 const startEndBtn = document.querySelector(".startEndBtn");
+const submitBtn = document.querySelector(".submit-btn");
 
 let score = 0;
 let delay = 1000;
@@ -102,11 +103,14 @@ const checkIfTopFive = () => {
   if (score > data[0]?.score || !data.length) return "Rank 1 score!!";
   else if (data.length < 5 || score > data[4].score)
     return "You made TOP 5! :)";
-  else return "Not a top 5 score :(";
+  else {
+    inputField.style.display = "none";
+    submitBtn.textContent = "Continue"; // TODO: Center txt
+    return "Not a top 5 score :(";
+  }
 };
 
 const submitScore = () => {
-  if (!inputField.value) return;
   const data = JSON.parse(localStorage.getItem("scores")) || [];
 
   data.push({ name: inputField.value, score });
@@ -128,9 +132,7 @@ const closeModal = () => {
 
 startEndBtn.addEventListener("click", handleStartButton);
 
-document
-  .querySelector(".submit-btn")
-  .addEventListener("click", submitScore);
+submitBtn.addEventListener("click", submitScore);
 
 document
   .querySelector(".close-btn")
